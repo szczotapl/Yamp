@@ -4,9 +4,11 @@
 window.onload = function () {
     var mdElements = document.getElementsByClassName('md');
 
-    var style = document.createElement('style');
-    style.innerHTML = '.md pre { white-space: pre-line; margin: 0; } code { background-color: gray; padding: 2px 4px; border-radius: 4px; font-family: Consolas, monospace; }';
-    document.head.appendChild(style);
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = 'https://cdn.jsdelivr.net/gh/riviox/yamp@master/src/css/yamp.min.css';
+    document.head.appendChild(link);
 
     for (var i = 0; i < mdElements.length; i++) {
         var mdContent = mdElements[i].innerHTML;
@@ -15,7 +17,6 @@ window.onload = function () {
         mdElements[i].innerHTML = '<pre>' + parsedContent + '</pre>';
     }
 };
-
 function parseMarkdown(markdown) {
     markdown = markdown.replace(/(#{1,6})\s+(.*?$)/gm, function(match, p1, p2) {
         var headerLevel = p1.length;
@@ -30,6 +31,7 @@ function parseMarkdown(markdown) {
                    .replace(/```([\s\S]+?)```/g, '<pre><code>$1</code></pre>');
     markdown = markdown.replace(/!\[([^\]]+)]\(([^)]+)\)/g, '<img src="$2" alt="$1">');
     markdown = markdown.replace(/~~(.*?)~~/g, '<del>$1</del>');
+    markdown = markdown.replace(/^\s*[-+*]\s+(.*?$)/gm, '<ul><li>$1</li></ul>');
     markdown = markdown.replace(/^\s*\*\s+(.*?$)/gm, '<ul><li>$1</li></ul>');
     markdown = markdown.replace(/^\s*1\.\s+(.*?$)/gm, '<ol><li>$1</li></ol>');
     markdown = markdown.replace(/^\s*> (.+)$/gm, '<blockquote>$1</blockquote>');

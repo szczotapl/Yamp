@@ -15,8 +15,15 @@
     font-family: Consolas, monospace;
 }
 
+.md pre code {
+    display: block;
+    padding: 10px;
+    overflow-x: auto;
+}
+
 .md h1, .md h2, .md h3, .md h4, .md h5, .md h6 {
     color: #333;
+    margin-bottom: 10px;
 }
 
 .md strong {
@@ -49,6 +56,7 @@
 .md ul, .md ol {
     margin-top: 0;
     margin-bottom: 10px;
+    padding-left: 20px;
 }
 
 .md ul ul, .md ol ul, .md ul ol, .md ol ol {
