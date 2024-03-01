@@ -1,6 +1,8 @@
 // YAMP - Yet Another Markdown Parser
 // Author - riviox
 
+var YAMP_VER = "1.2.5";
+
 window.onload = function () {
     var mdElements = document.getElementsByClassName('md');
 
@@ -17,6 +19,7 @@ window.onload = function () {
         mdElements[i].innerHTML = '<pre>' + parsedContent + '</pre>';
     }
 };
+
 function parseMarkdown(markdown) {
     markdown = markdown.replace(/(#{1,6})\s+(.*?$)/gm, function(match, p1, p2) {
         var headerLevel = p1.length;
@@ -36,5 +39,5 @@ function parseMarkdown(markdown) {
     markdown = markdown.replace(/^\s*-\s{2,}$/gm, '<hr>');
     markdown = markdown.replace(/\\n/g, '<br>');
     
-    return markdown;
+    return markdown.replace(/\$\(YAMP_VER\)/g, YAMP_VER);
 }
