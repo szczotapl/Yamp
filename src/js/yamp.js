@@ -5,7 +5,7 @@ window.onload = function () {
     var mdElements = document.getElementsByClassName('md');
 
     var style = document.createElement('style');
-    style.innerHTML = '.md pre { white-space: pre-line; margin: 0; }';
+    style.innerHTML = '.md pre { white-space: pre-line; margin: 0; } code { background-color: gray; padding: 2px 4px; border-radius: 4px; font-family: Consolas, monospace; }';
     document.head.appendChild(style);
 
     for (var i = 0; i < mdElements.length; i++) {
@@ -20,7 +20,8 @@ function parseMarkdown(markdown) {
     markdown = markdown.replace(/(#{1,6})\s+(.*?$)/gm, function(match, p1, p2) {
         var headerLevel = p1.length;
         return '<h' + headerLevel + '>' + p2 + '</h' + headerLevel + '>';
-    });    
+    });
+    
     markdown = markdown.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     markdown = markdown.replace(/\*(.*?)\*/g, '<em>$1</em>');
     markdown = markdown.replace(/\[([^\]]+)]\(([^)]+)\)/g, '<a href="$2">$1</a>');
