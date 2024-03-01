@@ -1,24 +1,18 @@
-.md {
-    background-color: #333;
-}
-
 .md pre {
     white-space: pre-line;
     margin: 0;
-    background-color: #1e1e1e;
+    background-color: #f8f8f8;
     padding: 10px;
-    border: 1px solid #333;
+    border: 1px solid #ddd;
     border-radius: 5px;
     overflow-x: auto;
-    color: #ddd;
 }
 
 .md code {
-    background-color: #2a2a2a;
+    background-color: #f4f4f4;
     padding: 2px 4px;
     border-radius: 4px;
     font-family: Consolas, monospace;
-    color: #ddd;
 }
 
 .md pre code {
@@ -28,7 +22,7 @@
 }
 
 .md h1, .md h2, .md h3, .md h4, .md h5, .md h6 {
-    color: #ddd;
+    color: #333;
     margin-bottom: 10px;
 }
 
@@ -41,7 +35,7 @@
 }
 
 .md a {
-    color: #4e94e5;
+    color: #007bff;
     text-decoration: none;
 }
 
@@ -57,7 +51,6 @@
 
 .md del {
     text-decoration: line-through;
-    color: #777;
 }
 
 .md ul, .md ol {
@@ -71,19 +64,19 @@
 }
 
 .md li {
-    line-height: 1.6;
+    line-height: 1.4;
 }
 
 .md blockquote {
-    border-left: 2px solid #333;
+    border-left: 2px solid #ddd;
     margin: 0;
     padding-left: 10px;
-    color: #999;
+    color: #666;
 }
 
 .md hr {
     border: 0;
     height: 1px;
-    background: #333;
+    background: #ddd;
     margin: 20px 0;
 }

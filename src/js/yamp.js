@@ -31,11 +31,10 @@ function parseMarkdown(markdown) {
                    .replace(/```([\s\S]+?)```/g, '<pre><code>$1</code></pre>');
     markdown = markdown.replace(/!\[([^\]]+)]\(([^)]+)\)/g, '<img src="$2" alt="$1">');
     markdown = markdown.replace(/~~(.*?)~~/g, '<del>$1</del>');
-    markdown = markdown.replace(/^\s*[-+*]\s+(.*?$)/gm, '<ul><li>$1</li></ul>');
-    markdown = markdown.replace(/^\s*\*\s+(.*?$)/gm, '<ul><li>$1</li></ul>');
-    markdown = markdown.replace(/^\s*1\.\s+(.*?$)/gm, '<ol><li>$1</li></ol>');
+    markdown = markdown.replace(/^\s*[-+*]\s+(.*?$)/gm, '<li>$1</li>');
     markdown = markdown.replace(/^\s*> (.+)$/gm, '<blockquote>$1</blockquote>');
     markdown = markdown.replace(/^\s*-\s{2,}$/gm, '<hr>');
+    markdown = markdown.replace(/\\n/g, '<br>');
     
     return markdown;
 }
