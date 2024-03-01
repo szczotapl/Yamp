@@ -1,7 +1,7 @@
 // YAMP - Yet Another Markdown Parser
 // Author - riviox
 
-var YAMP_VER = "1.2.5";
+var YAMP_VER = "1.0";
 
 window.onload = function () {
     var mdElements = document.getElementsByClassName('md');
@@ -25,19 +25,19 @@ function parseMarkdown(markdown) {
         var headerLevel = p1.length;
         return '<h' + headerLevel + '>' + p2 + '</h' + headerLevel + '>';
     });
-    
+
     markdown = markdown.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     markdown = markdown.replace(/\*(.*?)\*/g, '<em>$1</em>');
+    markdown = markdown.replace(/!\[([^\]]+)]\(([^)]+)\)/g, '<img src="$2" alt="$1">');
     markdown = markdown.replace(/\[([^\]]+)]\(([^)]+)\)/g, '<a href="$2">$1</a>');
     markdown = markdown.replace(/---/g, '<hr>');
     markdown = markdown.replace(/`([^`]+)`/g, '<code>$1</code>')
                    .replace(/```([\s\S]+?)```/g, '<pre><code>$1</code></pre>');
-    markdown = markdown.replace(/!\[([^\]]+)]\(([^)]+)\)/g, '<img src="$2" alt="$1">');
     markdown = markdown.replace(/~~(.*?)~~/g, '<del>$1</del>');
     markdown = markdown.replace(/^\s*[-+*]\s+(.*?$)/gm, '<li>$1</li>');
     markdown = markdown.replace(/^\s*> (.+)$/gm, '<blockquote>$1</blockquote>');
     markdown = markdown.replace(/^\s*-\s{2,}$/gm, '<hr>');
     markdown = markdown.replace(/\\n/g, '<br>');
-    
+
     return markdown.replace(/\$\(YAMP_VER\)/g, YAMP_VER);
 }
