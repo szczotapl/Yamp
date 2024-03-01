@@ -1,0 +1,74 @@
+.md pre {
+    white-space: pre-line;
+    margin: 0;
+    background-color: #f8f8f8;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+.md code {
+    background-color: #f4f4f4;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: Consolas, monospace;
+}
+
+.md h1, .md h2, .md h3, .md h4, .md h5, .md h6 {
+    color: #333;
+}
+
+.md strong {
+    font-weight: bold;
+}
+
+.md em {
+    font-style: italic;
+}
+
+.md a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.md a:hover {
+    text-decoration: underline;
+}
+
+.md img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.md del {
+    text-decoration: line-through;
+}
+
+.md ul, .md ol {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.md ul ul, .md ol ul, .md ul ol, .md ol ol {
+    margin-bottom: 0;
+}
+
+.md li {
+    line-height: 1.6;
+}
+
+.md blockquote {
+    border-left: 2px solid #ddd;
+    margin: 0;
+    padding-left: 10px;
+    color: #666;
+}
+
+.md hr {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 20px 0;
+}
