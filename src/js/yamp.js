@@ -17,17 +17,16 @@ window.onload = function () {
 };
 
 function parseMarkdown(markdown) {
-    markdown = markdown.replace(/(#)\s+(.*?$)/gm, '<h1>$2</h1>');
-    markdown = markdown.replace(/(##)\s+(.*?$)/gm, '<h2>$2</h2>');
-    markdown = markdown.replace(/(###)\s+(.*?$)/gm, '<h3>$2</h3>');
-    markdown = markdown.replace(/(####)\s+(.*?$)/gm, '<h4>$2</h4>');
-    markdown = markdown.replace(/(#####)\s+(.*?$)/gm, '<h5>$2</h5>');
-    markdown = markdown.replace(/(######)\s+(.*?$)/gm, '<h6>$2</h6>');
+    markdown = markdown.replace(/(#{1,6})\s+(.*?$)/gm, function(match, p1, p2) {
+        var headerLevel = p1.length;
+        return '<h' + headerLevel + '>' + p2 + '</h' + headerLevel + '>';
+    });    
     markdown = markdown.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     markdown = markdown.replace(/\*(.*?)\*/g, '<em>$1</em>');
     markdown = markdown.replace(/\[([^\]]+)]\(([^)]+)\)/g, '<a href="$2">$1</a>');
     markdown = markdown.replace(/---/g, '<hr>');
-    markdown = markdown.replace(/`([^`]+)`/g, '<code>$1</code>');
+    markdown = markdown.replace(/`([^`]+)`/g, '<code>$1</code>')
+                   .replace(/```([^`]+)```/g, '<pre><code>$1</code></pre>');
     markdown = markdown.replace(/!\[([^\]]+)]\(([^)]+)\)/g, '<img src="$2" alt="$1">');
     markdown = markdown.replace(/~~(.*?)~~/g, '<del>$1</del>');
     markdown = markdown.replace(/^\s*\*\s+(.*?$)/gm, '<ul><li>$1</li></ul>');
