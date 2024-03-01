@@ -26,7 +26,7 @@ function parseMarkdown(markdown) {
     markdown = markdown.replace(/\[([^\]]+)]\(([^)]+)\)/g, '<a href="$2">$1</a>');
     markdown = markdown.replace(/---/g, '<hr>');
     markdown = markdown.replace(/`([^`]+)`/g, '<code>$1</code>')
-                   .replace(/```([^`]+)```/g, '<pre><code>$1</code></pre>');
+                   .replace(/```([\s\S]+?)```/g, '<pre><code>$1</code></pre>');
     markdown = markdown.replace(/!\[([^\]]+)]\(([^)]+)\)/g, '<img src="$2" alt="$1">');
     markdown = markdown.replace(/~~(.*?)~~/g, '<del>$1</del>');
     markdown = markdown.replace(/^\s*\*\s+(.*?$)/gm, '<ul><li>$1</li></ul>');
