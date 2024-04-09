@@ -7,7 +7,7 @@ window.onload = function () {
     var link = document.createElement('link');
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = 'https://cdn.jsdelivr.net/gh/riviox/yamp@master/src/css/yamp.min.css';
+    link.href = 'https://cdn.jsdelivr.net/gh/riviox/yamp@master/src/css/yamp.css';
     document.head.appendChild(link);
 
     for (var i = 0; i < mdElements.length; i++) {
