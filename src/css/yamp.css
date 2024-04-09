@@ -6,6 +6,8 @@
     border: 1px solid #d1d5da;
     border-radius: 6px;
     overflow-x: auto;
+    width: auto;
+    height: auto;
 }
 
 .md code {
@@ -16,8 +18,11 @@
     border-color: #a0a1a1;
     font-family: Consolas, monospace;
     color: #24292e;
-    width: fit-content;
+    width: 100%;
+    word-break: break-all;
 }
+
+
 
 .md pre code {
     display: block;
