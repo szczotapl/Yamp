@@ -36,6 +36,31 @@ function parseMarkdown(markdown) {
     markdown = markdown.replace(/^\s*> (.+)$/gm, '<blockquote>$1</blockquote>');
     markdown = markdown.replace(/^\s*-\s{2,}$/gm, '<hr>');
     markdown = markdown.replace(/\\n/g, '<br>');
+    markdown = markdown.replace(/\[([^\]]+)]\s*\[([^\]]+)]/g, '<a href="$2">$1</a>');
+    markdown = markdown.replace(/\[([^\]]+)]\s*\[([^\]]+)]/g, '<a href="$2">$1</a>');
+    markdown = markdown.replace(/^\s*\|(.+)\|$/gm, function (match, p1) {
+        var rows = p1.split('|').map(function (item) {
+            return item.trim();
+        }).filter(function (item) {
+            return item !== '';
+        });
+        var tableRow = '<tr>';
+        rows.forEach(function (row) {
+            tableRow += '<td>' + row + '</td>';
+        });
+        tableRow += '</tr>';
+        return tableRow;
+    });
+    markdown = markdown.replace(/^\s*[-]+(?:\s*[-]+)+\s*$/gm, '');
+    markdown = markdown.replace(/<tr>(.*?)<\/tr>/g, '<tr>$1</tr>');
+    markdown = markdown.replace(/<td>(.*?)<\/td>/g, '<td>$1</td>');
+    markdown = markdown.replace(/<tr>/g, '<tr>');
+    markdown = markdown.replace(/<td>/g, '<td>');
+    
+    markdown = markdown.replace(/^\s*\[(x| )\]\s*(.*?)$/gm, function (match, p1, p2) {
+        var checked = p1.trim() === 'x' ? 'checked' : '';
+        return '<input type="checkbox" ' + checked + ' disabled> ' + p2;
+    });
 
     return markdown;
 }

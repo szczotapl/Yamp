@@ -1,50 +1,47 @@
+/* YAMP - Yet Another Markdown Parser */
+/* Author - riviox */
+
+:root {
+    --background-color: #efe6dd; /* Catpuccino mocha background */
+    --code-background-color: #beb3a7; /* Catpuccino mocha code background */
+    --code-color: #3e3631; /* Catpuccino mocha code color */
+    --heading-color: #8f715b; /* Catpuccino mocha heading color */
+    --link-color: #0366d6; /* Default link color */
+    --link-hover-color: #115fbf; /* Link hover color */
+    --text-color: #24292e; /* Default text color */
+    --blockquote-border-color: #dfe2e5; /* Blockquote border color */
+    --blockquote-text-color: #6a737d; /* Blockquote text color */
+    --hr-background-color: #d1d5da; /* HR background color */
+    --del-text-color: #586069; /* Deleted text color */
+}
+
 .md pre {
     white-space: pre-wrap;
     margin: 0;
-    background-color: #f6f8fa;
+    background-color: var(--background-color);
     padding: 16px;
     border: 1px solid #d1d5da;
     border-radius: 6px;
     overflow-x: auto;
-    width: auto;
-    height: auto;
 }
 
 .md code {
-    background-color: #8f8f8f;
+    background-color: var(--code-background-color);
     padding: 4px 8px;
     border-radius: 4px;
-    border-style: solid;
-    border-color: #a0a1a1;
+    border: 1px solid #a0a1a1;
     font-family: Consolas, monospace;
-    color: #24292e;
-    width: 100%;
+    color: var(--code-color);
     word-break: break-all;
 }
 
-
-
-.md pre code {
-    display: block;
-    padding: 16px;
-    overflow-x: auto;
-}
-
 .md h1, .md h2, .md h3, .md h4, .md h5, .md h6 {
-    color: #0366d6;
+    color: var(--heading-color);
     margin-bottom: 16px;
 }
 
-.md strong {
-    font-weight: 600;
-}
-
-.md em {
-    font-style: italic;
-}
-
 .md a {
-    color: #0366d6;
+    color: var(--link-color);
     text-decoration: none;
 }
 
@@ -52,41 +49,37 @@
     text-decoration: underline;
 }
 
+.md {
+    color: var(--text-color);
+}
+
+.md blockquote {
+    border-left: 4px solid var(--blockquote-border-color);
+    margin: 0;
+    padding-left: 16px;
+    color: var(--blockquote-text-color);
+}
+
+.md hr {
+    border: 0;
+    height: 1px;
+    background: var(--hr-background-color);
+    margin: 24px 0;
+}
+
+.md del {
+    text-decoration: line-through;
+    color: var(--del-text-color);
+}
+
+
 .md img {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
 }
 
-.md del {
-    text-decoration: line-through;
-    color: #586069;
-}
-
-.md ul, .md ol {
-    margin-top: 0;
-    margin-bottom: 16px;
-    padding-left: 20px;
-}
-
-.md ul ul, .md ol ul, .md ul ol, .md ol ol {
-    margin-bottom: 0;
-}
-
-.md li {
-    line-height: 1.6;
-}
-
-.md blockquote {
-    border-left: 4px solid #dfe2e5;
-    margin: 0;
-    padding-left: 16px;
-    color: #6a737d;
-}
-
-.md hr {
-    border: 0;
-    height: 1px;
-    background: #d1d5da;
-    margin: 24px 0;
+.md input[type="checkbox"] {
+    vertical-align: middle;
+    margin-top: 2px;
 }
