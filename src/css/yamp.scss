@@ -49,7 +49,7 @@ $pastel_white: #f0f2f5;
 
   a {
     color: $pastel_blue;
-    text-decoration: none;
+    text-decoration: solid;
 
     &:hover {
       text-decoration: underline;

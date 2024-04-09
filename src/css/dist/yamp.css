@@ -36,7 +36,7 @@
 }
 .md a {
   color: #a6c8e2;
-  text-decoration: none;
+  text-decoration: solid;
 }
 .md a:hover {
   text-decoration: underline;
